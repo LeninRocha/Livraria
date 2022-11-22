@@ -8,10 +8,11 @@ export default class VendasController {
         const {dateVenda} = request.all()
         const venda = Venda.query()
                            .select(['id', 'dateVenda'])
+                           
         if(dateVenda){
             venda.where('nome', dateVenda)
             }
-        return venda
+        return venda.preload("cliente").preload("pedido")
      }
      async store({request}){
         const dados = await request.validate(VendaValidator)

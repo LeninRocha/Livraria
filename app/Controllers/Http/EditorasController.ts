@@ -14,7 +14,7 @@ export default class EditorasController {
         else if(razaoSocial){
             editora.where('razaoSocial', razaoSocial)
             }
-        return editora
+        return editora.preload("livro")
      }
      async store({request}){
         const dados = await request.validate(EditoraValidator)

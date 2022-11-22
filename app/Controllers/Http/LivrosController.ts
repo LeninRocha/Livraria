@@ -13,7 +13,7 @@ export default class LivrosController {
         else if(preco){
             livro.where('preco', preco)
             }
-        return livro
+        return livro.preload("categoria").preload("editor").preload('pedido')
      }
      async store({request}){
         const dados = await request.validate(LivroValidator)

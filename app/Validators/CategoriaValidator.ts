@@ -6,10 +6,6 @@ export default class CategoriaValidator {
 
   public schema = schema.create({
     nome: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'nome',
-        table: 'categorias'
-      }),
       rules.maxLength(100),
       rules.minLength(3),
     ])
@@ -17,7 +13,6 @@ export default class CategoriaValidator {
 
 
   public messages: CustomMessages = {
-    'nome.unique': 'Esse nome ja foi cadastrado',
     'nome.maxLength': 'A quantidade de carateres em nome passou de 100',
     'nome.minLength': 'O nome deve possuir no minimo 3 caracteres',
   }

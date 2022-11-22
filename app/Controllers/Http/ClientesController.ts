@@ -16,7 +16,7 @@ export default class ClientesController {
         if(nome){
             cliente.where('rg', rg)
             }
-        return cliente 
+        return cliente.preload("venda")
      }
      async store({request}){
         const dados = await request.validate(ClienteValidator)

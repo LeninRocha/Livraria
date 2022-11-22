@@ -10,7 +10,7 @@ export default class CategoriasController {
         if(nome){
             categoria.where('nome', nome)
             }
-        return categoria
+        return categoria.preload("livro")
      }
      async store({request}){
         const dados = await request.validate(CategoriaValidator)

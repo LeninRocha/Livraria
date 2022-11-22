@@ -10,7 +10,7 @@ export default class PedidosController {
         if(qtd_pedido){
             pedido.where('qtd_pedido', qtd_pedido)
             }
-        return pedido
+        return pedido.preload("livro")
      }
      async store({request}){
         const dados = await request.validate(PedidoValidator)
