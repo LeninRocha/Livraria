@@ -10,7 +10,7 @@ export default class extends BaseSchema {
       table.string('titulo').notNullable()
       table.decimal('preco',10.2).notNullable()
       table.string('categoria_id').unsigned().references('id').inTable('categorias').notNullable()
-      table.string('editora_id').unsigned().references('id').inTable('editors').notNullable()
+      table.string('editor_id').unsigned().references('id').inTable('editors').notNullable()
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

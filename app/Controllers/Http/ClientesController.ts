@@ -6,7 +6,7 @@ export default class ClientesController {
     async index({request}){
         const {nome, cpf, rg} = request.all()
         const cliente = Cliente.query()
-                           .select(['id', 'nome', 'cpf', 'rg'])
+                           .select(['id', 'nome', 'cpf', 'rg', 'vendaId'])
         if(nome){
             cliente.where('nome', nome)
             }

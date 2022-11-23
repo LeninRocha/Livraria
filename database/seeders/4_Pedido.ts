@@ -6,23 +6,23 @@ export default class extends BaseSeeder {
     await Pedido.createMany([
       {
         qtdPedido: 1,
-        idLivro: 1
+        livroId: 1
       },
       {
         qtdPedido: 2,
-        idLivro: 2
+        livroId: 2
       },
       {
         qtdPedido: 3,
-        idLivro: 3
+        livroId: 3
       },
       {
         qtdPedido: 4,
-        idLivro: 4
+        livroId: 4
       },
       {
         qtdPedido: 5,
-        idLivro: 5
+        livroId: 5
       },
     ])
   }

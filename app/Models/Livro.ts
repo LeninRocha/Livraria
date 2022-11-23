@@ -21,7 +21,7 @@ export default class Livro extends BaseModel {
   public categoriaId: number
 
   @column()
-  public editoraId: number
+  public editorId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

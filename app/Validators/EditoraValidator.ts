@@ -12,7 +12,6 @@ export default class EditoraValidator {
       }),
       rules.maxLength(100),
       rules.minLength(10),
-      rules.alpha()
     ]),
     razaoRocial: schema.string.nullableAndOptional([
       rules.unique({

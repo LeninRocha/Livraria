@@ -14,16 +14,11 @@ export default class LivroValidator {
       rules.maxLength(15)
     ]),
     titulo: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'titulo',
-        table: 'livros'
-      }),
       rules.maxLength(100),
       rules.minLength(1)
     ]),
     preco: schema.number.nullableAndOptional([
-      rules.maxLength(100),
-      rules.minLength(1)
+      rules.range(0, 9999)
     ]),
   })
 

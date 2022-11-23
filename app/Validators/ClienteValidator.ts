@@ -7,17 +7,17 @@ export default class ClienteValidator {
   public schema = schema.create({
     nome: schema.string.optional([
       rules.unique({
-        column: 'matricula',
+        column: 'nome',
         table: 'clientes'
       }),
       rules.maxLength(100),
       rules.minLength(1),
     ]),
-    cep: schema.number.optional([
+    cpf: schema.number.optional([
       rules.range(0, 9999999999)
     ]),
     rg: schema.number.optional([
-      rules.maxLength(15),
+       rules.range(0, 99999999999),
     ]),
     endereco:schema.string.optional([
       rules.maxLength(15),
@@ -29,7 +29,7 @@ export default class ClienteValidator {
     'nome.minLength': 'O nome deve possuir no minimo 3 caracteres',
     'cpf.maxLength': 'O cpf possui 11 caracteres',
     'cpf.minLength': 'O cpf possui 11 caracteres',
-    'endereco.maxLength': 'A quantidade de numeros passou de 100',
-    'rg.maxLength': 'A quantidade de numeros passou de 15',
+    //'endereco.maxLength': 'A quantidade de numeros passou de 100',
+    //'rg.maxLength': 'A quantidade de numeros passou de 15',
   }
 }

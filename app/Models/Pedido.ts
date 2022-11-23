@@ -10,7 +10,7 @@ export default class Pedido extends BaseModel {
   public qtdPedido: number
 
   @column()
-  public idLivro: number
+  public livroId: number
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

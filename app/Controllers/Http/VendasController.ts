@@ -7,12 +7,12 @@ export default class VendasController {
     async index({request}){
         const {dateVenda} = request.all()
         const venda = Venda.query()
-                           .select(['id', 'dateVenda'])
+                           .select(['id', 'dateVenda','clienteId', 'pedidoId'])
                            
         if(dateVenda){
             venda.where('nome', dateVenda)
             }
-        return venda.preload("cliente").preload("pedido")
+        return venda.preload("cliente").preload("pedido").preload("cliente")
      }
      async store({request}){
         const dados = await request.validate(VendaValidator)

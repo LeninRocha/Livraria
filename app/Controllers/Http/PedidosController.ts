@@ -6,7 +6,7 @@ export default class PedidosController {
     async index({request}){
         const {qtd_pedido} = request.all()
         const pedido = Pedido.query()
-                           .select(['id', 'qtd_pedido'])
+                           .select(['id', 'qtd_pedido', 'livroId'])
         if(qtd_pedido){
             pedido.where('qtd_pedido', qtd_pedido)
             }

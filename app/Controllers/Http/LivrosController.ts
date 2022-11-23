@@ -6,7 +6,7 @@ export default class LivrosController {
     async index({request}){
         const {titulo, preco} = request.all()
         const livro = Livro.query()
-                           .select(['id', 'titulo', 'preco'])
+                           .select(['id', 'titulo', 'preco', 'editorId', 'categoriaId'])
         if(titulo){
             livro.where('titulo', titulo)
             }
