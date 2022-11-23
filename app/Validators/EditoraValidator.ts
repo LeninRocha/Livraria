@@ -5,19 +5,19 @@ export default class EditoraValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    nomeFantasia: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'nomeFantasia',
-        table: 'editors'
-      }),
+    nomeFantasia: schema.string.optional([
+      //rules.unique({
+      //  column: 'nomeFantasia',
+      //  table: 'editors'
+      //}),
       rules.maxLength(100),
-      rules.minLength(10),
+      rules.minLength(5),
     ]),
-    razaoRocial: schema.string.nullableAndOptional([
-      rules.unique({
-        column: 'razao_social',
-        table: 'editors'
-      }),
+    razaoRocial: schema.string.optional([
+      //rules.unique({
+      //  column: 'razao_social',
+      //  table: 'editors'
+      //}),
       rules.maxLength(100), 
       rules.minLength(10),
       rules.alpha()
@@ -32,7 +32,7 @@ export default class EditoraValidator {
 
   public messages: CustomMessages = {
     alpha: 'O campo não aceita Letras',
-    'nomeFantasia.unique': 'Esse nome fantasia ja foi criado',
+    //'nomeFantasia.unique': 'Esse nome fantasia ja foi criado',
     'razaoRocial.unique': 'Essa rasão social ja foi criado',
     'nomeFantasia.maxLength': 'A quantidade de carateres em nome passou de 100',
     'razaoRocial.maxLength': 'A quantidade de carateres em nome passou de 100',

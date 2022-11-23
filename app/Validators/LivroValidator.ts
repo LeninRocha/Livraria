@@ -6,20 +6,23 @@ export default class LivroValidator {
 
 
   public schema = schema.create({
-    isbn: schema.number.nullableAndOptional([
+    isbn: schema.string.optional([
       rules.unique({
         column: 'isbn',
         table: 'livros'
       }),
       rules.maxLength(15)
     ]),
-    titulo: schema.string.nullableAndOptional([
+    titulo: schema.string.optional([
       rules.maxLength(100),
       rules.minLength(1)
     ]),
-    preco: schema.number.nullableAndOptional([
+    preco: schema.number.optional([
       rules.range(0, 9999)
     ]),
+
+    editorId: schema.number(),
+    categoriaId: schema.number()
   })
 
   public messages: CustomMessages = {
@@ -30,6 +33,5 @@ export default class LivroValidator {
     'preco.required': 'O campo titulo não pode se nula',
     'isbn.maxLength': 'A quantidade de numeros passou de 15',
     'titulo.maxLength': 'A quantidade de numeros passou de 100',
-    'preco.maxLength': 'A quantidade de numeros passou de 100'
   }
 }

@@ -8,9 +8,11 @@ export default class PedidoValidator {
     qtdPedido: schema.string.optional([
       rules.maxLength(100)
     ]),
+    livroID: schema.number()
   })
 
+
   public messages: CustomMessages = {
-    'qtdPedido.maxLength': 'A quantidade de carateres e 100',
+    'qtdPedido.maxLength': 'A quantidade de caracteres e 100',
   }
 }
